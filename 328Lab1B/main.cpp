@@ -40,6 +40,28 @@ int binarySearch(std::vector<int> a, int l, int r, int key)
 	
 }
 
+int binarySearchStep(std::vector<int> a, int l, int r, int key)
+{
+	int split = (r + l) / 2;
+	int left = l;
+	int right = r;
+	if (l > r)
+	{
+		return 0;
+	}
+	if (key == a[split])
+		return 0;
+	else if (key < a[split])
+	{
+		return 0;
+	}
+	else if (key > a[split])
+	{
+		return 0;
+	}
+
+}
+
 int main()
 {
 	int n = 0;
@@ -68,6 +90,15 @@ int main()
 	end = chrono::high_resolution_clock::now();
 	duration = chrono::duration_cast<chrono::microseconds>((end - start));
 	cout << "Binary search lasts " << duration.count() << " microseconds" << endl;
+
+	start = chrono::high_resolution_clock::now();
+	binarySearchStep(vec, 0, vec.size() - 1, a);
+	end = chrono::high_resolution_clock::now();
+	duration = chrono::duration_cast<chrono::microseconds>((end - start));
+	cout << "One binary search step lasts " << duration.count() << " microseconds" << endl;
+	long bigCase = (duration.count()*log2(100000000));
+	cout << "10 to the 7th would take " << bigCase << " microseconds" << endl;
+
 
 	return 0;
 
